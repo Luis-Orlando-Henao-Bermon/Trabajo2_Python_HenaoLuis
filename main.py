@@ -15,10 +15,61 @@ with open ("./Proveedores.json", encoding="UTF-8") as file:
 with open ("./Ventas.json", encoding="UTF-8") as file:
     ventas=json.load(file)
 
-xd=datetime.now()
 
-hola=xd.strptime('2020-4-15 20:50:30', '%Y-%m-%d %H:%M:%S')
-print(hola)
+bol=True
+system("clear")
+while bol==True:
+    system("clear")
+    opcion=int(input("==========Menu==========\n1. Registrar ventas\n2. Registrar compra\n3. Salir\nEscribe tu opcion\n"))
+    system("clear")
+    if opcion==1:
+        fechaVenta=str(datetime.now())
+        print("----------Pacientes----------")
+        
+        for i in pacientes:
+            print("ID:",i["id"],"------ Nombre:",i["nombre"])
+            print("------------------------------------------")
+        
+        idPacienteV=int(input("Ingresa el ID del paciente al que se le realizara la venta\n"))
+        system("clear")
+        for i in pacientes:
+            if i["id"]==idPacienteV:
+                pacienteV={"nombre":i["nombre"],"direccion":i["direccion"]}
+        
+        print("----------Empleados----------")
+        for i in empleados:
+            print("ID:",i["id"],"------ Nombre:",i["nombre"])
+            print("------------------------------------------")
+        
+        idEmpleadoV=int(input("Ingresa el ID del empleado que realizara la venta\n"))
+        for i in empleados:
+            if i["id"]==idEmpleadoV:
+                empleadoV={"nombre":i["nombre"],"cargo":i["cargo"]}
+        
+        system("clear")
+        print("----------Medicamentos----------")
+        for i in medicamentos:
+            print("ID:",i["id"],"------ Nombre:",i["nombre"],"------ Precio:",i["precio"],"------ Cantidad en stock:",i["stock"])
+            print("------------------------------------------")
+        
+        idMedicamentoV=int(input("Ingresa el ID del medicamento que se va a vender\n"))
+        cantidadMedicamentoV=int(input("Ingresa la cantidad de de medicamento que se va a vender\n"))
+        for i in medicamentos:
+            if i["id"]==idMedicamentoV:
+                medicamentoV={"nombreMedicamento":i["nombre"],"cantidadVendida":cantidadMedicamentoV,"precio":i["precio"]}
+                i["stock"]=i["stock"]-cantidadMedicamentoV
+
+        ventas.append({"fechaVenta":fechaVenta,"paciente":pacienteV,"empleado":empleadoV,"medicamentosVendidos":medicamentoV})
+        system("clear")
+        input("Venta realizada con exito 😀\nPreciona Enter para continuar")
+
+    elif opcion==2:
+        ""
+    elif opcion==3:
+        print("Gracias por usar el programa ♥")
+        bol=False
+# hola=str(datetime.now())
+# print(hola)
 
 
 
