@@ -57,7 +57,7 @@
     {
         "nombre": "Losartan",
         "precio": 55,
-        "stock": 95,
+        "stock": 103,
         "fechaExpiracion": "2024-07-30T00:00:00Z",
         "proveedor": {
             "nombre": "ProveedorC",

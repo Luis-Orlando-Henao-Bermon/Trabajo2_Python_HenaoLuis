@@ -138,5 +138,17 @@
                 "precioCompra": 20
             }
         ]
+    },
+    {
+        "fechaCompra": "2024-08-08 19:32:15.810670",
+        "proveedor": {
+            "nombre": "ProveedorC",
+            "contacto": "contacto@proveedorc.com"
+        },
+        "medicamentosComprados": {
+            "nombreMedicamento": "Losartan",
+            "cantidadComprada": 8,
+            "precioCompra": 45
+        }
     }
 ]

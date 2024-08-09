@@ -64,7 +64,36 @@ while bol==True:
         input("Venta realizada con exito 😀\nPreciona Enter para continuar")
 
     elif opcion==2:
-        ""
+        fechaCompra=str(datetime.now())
+        print("----------Proveedores----------")
+        for i in proveedores:
+            print("ID:",i["id"],"-------- Nombre:",i["nombre"])
+
+        idProveedor=int(input("Ingresa el id del proveedor al que se le realizara la compra\n"))
+
+        for i in proveedores:
+            if i["id"]==idProveedor:
+                proveedor={"nombre":i["nombre"],"contacto":i["contacto"]}
+
+        system("clear")
+        print("----------Medicamentos----------")
+        for i in medicamentos:
+            print("ID:",i["id"],"------ Nombre:",i["nombre"],"------ Precio:",i["precio"],"------ Cantidad en stock:",i["stock"])
+            print("------------------------------------------")
+        
+        idMedicamentoC=int(input("Ingresa el ID del medicamento que se va a comprar\n"))
+        cantidadMedicamentoC=int(input("Ingresa la cantidad de de medicamento que se va a comprar\n"))
+        precioCompra=int(input("Ingrese el precio de compra del medicamento\n"))
+        for i in medicamentos:
+            if i["id"]==idMedicamentoC:
+                medicamentoC={"nombreMedicamento":i["nombre"],"cantidadComprada":cantidadMedicamentoC,"precioCompra":precioCompra}
+                i["stock"]=i["stock"]+cantidadMedicamentoC
+        
+        compras.append({"fechaCompra":fechaCompra,"proveedor":proveedor,"medicamentosComprados":medicamentoC})
+
+        system("clear")
+        input("Compra realizada con exito 😀\nPreciona Enter para continuar")
+
     elif opcion==3:
         print("Gracias por usar el programa ♥")
         bol=False
